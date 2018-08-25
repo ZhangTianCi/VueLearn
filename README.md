@@ -1,2 +1,7 @@
-# VueLearn
-Vue学习
+# Vue
+1.config vue-devools
+2.element-ui
+3.index.vue
+4.layout
+5.change title in route.beforeEach
+5.menu renderer => $route or $roter
