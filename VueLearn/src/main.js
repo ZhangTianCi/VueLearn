@@ -2,21 +2,26 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 Vue.config.devtools = true
-import LayoutTop from './Layout/Top.vue'
-import LayoutTMain from './Layout/Main.vue'
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI)
+
 import router from './router'
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
+import Index from './Index.vue'
 
 Vue.config.productionTip = false
-let VueLayoutMain = new Vue({
-  el: '#Layout_Main>*',
-  router,
-  components: { LayoutTMain },
-  template: '<LayoutTMain/>'
-})
 
-let VueLayoutTop = new Vue({
-  el: '#Layout_Top>*',
+new Vue({
+  el: 'body>*',
   router,
-  components: { LayoutTop },
-  template: '<LayoutTop/>'
+  components: { Index },
+  template: '<Index/>'
 })
