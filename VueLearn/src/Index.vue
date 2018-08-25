@@ -1,10 +1,10 @@
 <template>
     <el-container style="height:100%;">
-        <el-header style="padding-left:0;">
+        <el-header style="padding-left:0;padding-right:0;">
             <LayoutTop></LayoutTop>
         </el-header>
         <el-container style="height:100%;">
-            <el-aside width="200px">
+            <el-aside width="200px" v-if="$route.meta.menus.length>0">
                 <LayoutLeft></LayoutLeft>
             </el-aside>
             <el-main>
